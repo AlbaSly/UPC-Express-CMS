@@ -1,0 +1,44 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title CRM
+  link(rel='stylesheet' href='/css/tailwind.min.css')
+  link(rel='stylesheet' href='/css/custom.css')
+.min-h-screen(class='md:flex md:align-top')
+  aside.bg-teal-600.px-5.py-10(class='md:w-2/5 lg:w-2/5 xl:w-1/5')
+    h1.uppercase.text-white.tracking-wide.text-2xl.font-bold.mt-2 CRM
+    p.mt-10.text-white Administra tus Clientes con el CRM
+    nav.mt-8
+      a.px-3.py-1.text-white.block.bg-teal-700(href='/' class='hover:bg-teal-700 hover:text-yellow-400') Clientes
+      a.px-3.py-1.text-white.block.mt-2(href='/cliente-nuevo' class='hover:bg-teal-900 hover:text-yellow-400') Nuevo Cliente
+  // sidebar
+  main.px-5.py-10.bg-gray-200(class='md:w-3/5 xl:w-4/5')
+    h2.text-3xl.font-light.text-center Clientes
+    .flex.flex-col.mt-10
+      .py-2.overflow-x-auto
+        .align-middle.inline-block.min-w-full.shadow.overflow-hidden.border-b.border-gray-200(class='sm:rounded-lg')
+          table.min-w-full
+            thead.bg-gray-100
+              tr
+                th.px-6.py-3.border-b.border-gray-200.text-left.text-xs.leading-4.font-medium.text-gray-600.uppercase.tracking-wider
+                  | Nombre Cliente
+                th.px-6.py-3.border-b.border-gray-200.text-left.text-xs.leading-4.font-medium.text-gray-600.uppercase.tracking-wider
+                  | Tel&eacute;fono
+                th.px-6.py-3.border-b.border-gray-200.text-left.text-xs.leading-4.font-medium.text-gray-600.uppercase.tracking-wider
+                  | Empresa
+                th.px-6.py-3.border-b.border-gray-200.text-left.text-xs.leading-4.font-medium.text-gray-600.uppercase.tracking-wider
+                  | Acciones
+            tbody#listado-clientes.bg-white
+            for cliente in listadoClientes
+              tr
+                td.px-6.py-4.whitespace-no-wrap.border-b.border-gray-200
+                  p.text-sm.leading-5.font-medium.text-gray-700.text-lg.font-bold  #{cliente.nombre} 
+                  p.text-sm.leading-10.text-gray-700  #{cliente.email} 
+                td.px-6.py-4.whitespace-no-wrap.border-b.border-gray-200
+                  p.text-gray-700 #{cliente.telefono}
+                td.px-6.py-4.whitespace-no-wrap.border-b.border-gray-200.leading-5.text-gray-700
+                  p.text-gray-600 #{cliente.empresa}
+                td.px-6.py-4.whitespace-no-wrap.border-b.border-gray-200.text-sm.leading-5
+                
+

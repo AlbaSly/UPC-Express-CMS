@@ -1,0 +1,24 @@
+#formulario {
+    position: relative;
+}
+
+.alert {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

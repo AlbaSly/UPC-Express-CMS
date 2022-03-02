@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title CRM
+  link(rel='stylesheet' href='css/tailwind.min.css')
+  link(rel='stylesheet' href='css/custom.css')
+.min-h-screen(class='md:flex md:align-top')
+  aside.bg-teal-600.px-5.py-10(class='md:w-2/5 lg:w-2/5 xl:w-1/5')
+    h1.uppercase.text-white.tracking-wide.text-2xl.font-bold.mt-2 CRM
+    p.mt-10.text-white Administra tus Clientes con el CRM
+    nav.mt-8
+      a.px-3.py-1.text-white.block(href='/' class='hover:bg-teal-700 hover:text-yellow-400') Clientes
+      a.px-3.py-1.text-white.block.mt-2(href='/' class='hover:bg-teal-900 hover:text-yellow-400') Nuevo Cliente
+  // sidebar
+  main.px-5.py-10.bg-gray-200(class='md:w-3/5 xl:w-4/5')
+    h2.text-3xl.font-light.text-center Cliente - #{accion || 'Acciones'}
+    .flex.flex-col.mt-10.items-center
+      .-my-2.py-2.overflow-x-auto(class='sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-10/12 md:w-8/12 lg:w-6/12')
+        .shadow.overflow-hidden.border-b.border-gray-200(class='sm:rounded-lg')
+          form#formulario.bg-white.p-3(method=`${method || 'POST'}` action=`${actionRoute || ''}`)
+            .mb-4
+              label.block.text-gray-700.text-sm.font-bold.mb-2(for='nombre') Nombre
+              input#nombre.appearance-none.border.rounded.w-full.py-2.px-3.text-gray-700.leading-tight(class='focus:outline-none focus:shadow-outline' name='nombre' type='text' placeholder='Nombre Cliente')
+            .mb-4
+              label.block.text-gray-700.text-sm.font-bold.mb-2(for='email') Correo
+              input#email.appearance-none.border.rounded.w-full.py-2.px-3.text-gray-700.leading-tight(class='focus:outline-none focus:shadow-outline' name='email' type='email' placeholder='Email Cliente')
+            .mb-4
+              label.block.text-gray-700.text-sm.font-bold.mb-2(for='telefono') Tel&eacute;fono
+              input#telefono.appearance-none.border.rounded.w-full.py-2.px-3.text-gray-700.leading-tight(class='focus:outline-none focus:shadow-outline' name='telefono' type='tel' placeholder='Teléfono Cliente')
+            .mb-4
+              label.block.text-gray-700.text-sm.font-bold.mb-2(for='empresa') Empresa
+              input#empresa.appearance-none.border.rounded.w-full.py-2.px-3.text-gray-700.leading-tight(class='focus:outline-none focus:shadow-outline' name='empresa' type='text' placeholder='Empresa Cliente')
+            input#id(type='hidden' name='id' value='')
+            input.bg-teal-600.w-full.mt-5.p-2.text-white.uppercase.font-bold(type='submit' class='hover:bg-teal-900' value='Crear Cliente')
